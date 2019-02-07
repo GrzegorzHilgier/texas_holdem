@@ -2,16 +2,13 @@
 #include "stdafx.h"
 
 class cGameProcedure : public cScript
-{
-
-	
+{	
 	cMainMenu* hMenu;
 	cMainScreen* hMS;
 	cSeatMenu* hSeatMenu;
 	cTableMenu* hTableMenu;
 	cGameEngine* hGameEngine;
-	cBetMenu* hBetMenu;
-	
+	cBetMenu* hBetMenu;	
 	sGameData sGD;
 	sInitData sID;
 	cDebugger* hDebugger;
@@ -20,12 +17,7 @@ class cGameProcedure : public cScript
 public:
 	LPCWSTR nickname[10];
 	bool pause;
-	
 	HBITMAP h;
-
-
-
-
 	cGameProcedure();
 	cMainMenu* GethMenu();
 	int init2();
@@ -36,7 +28,6 @@ public:
 	void GameReset();
 	void SeatMenuFinish(int);
 	void BetMenuFinish(int);
-	
 	int Timer(int);
 	int Scroll(int k) { return 0; }
 	sGameData GetGD();

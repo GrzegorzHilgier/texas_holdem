@@ -23,7 +23,6 @@ public:
 	int Command(int);
 	int Scroll(int k) { return 0; }
 	int Timer(int);
-
 	~cDebugger();
 
 };

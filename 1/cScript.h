@@ -2,10 +2,6 @@
 #include "stdafx.h"
 class WSInterface;
 
-
-
-
-
 //parent class for menu objects
 class cScript
 { protected:

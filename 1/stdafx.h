@@ -9,7 +9,7 @@
 
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
-#include <windows.h>
+#include <Windows.h>
 
 // C RunTime Header Files
 #include <stdlib.h>
@@ -45,14 +45,12 @@ class cBetMenu;
 #include "cScript.h"
 #include "cMainScreen.h"
 #include "WSInterface.h"
-
 #include "cGameProcedure.h"
 #include "cDebugger.h"
 #include "cSeatMenu.h"
 #include "cBetMenu.h"
 #include "cAnimation.h"
 #include "cTableMenu.h"
-
 #include "cSubMenu1.h"
 #include "cMainMenu.h"
 

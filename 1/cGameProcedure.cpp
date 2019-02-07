@@ -110,7 +110,7 @@ void cGameProcedure::SeatMenuFinish(int k)
 	for (int i = 0; i < 10; i++)
 		sGD.player[i].card1 = { 0,0 };
 	
-	hGameEngine = new cGameEngine(sID, &sGD,hWnd);
+	hGameEngine = new cGameEngine(sID, &sGD);
 	//////////////////DEBUG/////////////////
 	//hDebugger = new cDebugger;
 	//hDebugger->init(hInst, hWnd, 0, 15, hWSI, this);

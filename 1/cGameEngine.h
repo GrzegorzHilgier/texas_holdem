@@ -1,58 +1,44 @@
-#include "stdafx.h"
 #include <ctime>
-#include <iostream>
 #include "cBlind.h"
-//#include<conio.h>
+
 
 // instance of card contain figure and colour
-struct card
-{
+struct card{
 	int f;
 	int c;
 };
 
 // usefull in definiotion of player cards value
-struct sValue
-{
+struct sValue{
 	int combination;
 	int highcard;
 	int lowcard;
 	int kicker;
-
 };
 
-
-class deck
-{
+class deck{
 	bool d[52];
 	int cleft;
 public:
-	deck()
-	{
+	deck(){
 		Shuffle();
 		srand(static_cast<unsigned int>(time(NULL)));
-
 	}
 
-	void Shuffle()
-	{
+	void Shuffle(){
 		for (int i = 0; i < 52; i++) d[i] = 1;
 		cleft = 52;
 	}
 
-	card CardDraw()
-	{
+	card CardDraw(){
 		card x = { -1,-1 };
 
-		if (cleft > 0)
-		{
+		if (cleft > 0){
 			int k = rand() % cleft;
 			int c = 0;
 			int i;
-			for (i = 0; i < 52; i++)
-			{
-				if (d[i] == 1)
-				{
+			for (i = 0; i < 52; i++){
+				if (d[i] == 1){
 					if (c == k)break;
 					else c++;
 				}
@@ -62,7 +48,6 @@ public:
 			x.f = (i / 4) + 2;
 			x.c = i % 4;
 		}
-
 		return x;
 	}
 };
@@ -72,21 +57,14 @@ enum GameStage { GS_DEALER, GS_PREFLOP,GS_HUMAN,GS_FLOP,GS_TURN,GS_RIVER, GS_END
 //Minor
 enum StageStage{SS_INIT,SS_BIDDING,SS_CLEAR};
 
-struct sInitData
-{
+struct sInitData{
 	int players;
 	int stack;
 	int blind;
-	unsigned int starttime;
-	
+	unsigned int starttime;	
 	bool human[10];
-
-
-
 };
-struct sGameData
-{
-	
+struct sGameData{
 	GameStage eGS;
 	StageStage eSS;
 	bool showdown;
@@ -102,10 +80,7 @@ struct sGameData
 	card river;
 	unsigned int t;
 	
-
-	struct players
-	{
-
+	struct players{
 		bool human;
 		int stack;
 		int totalbet;
@@ -123,7 +98,6 @@ struct sGameData
 class cGameEngine
 {
 	deck* hDeck;
-	
 	GameStage nextGS;
 	StageStage nextSS;
 	bool changeGS;
@@ -131,9 +105,6 @@ class cGameEngine
 	int iteration;
 	sGameData sGD;
 	sGameData* hGD;
-	
-	
-	
 	HWND hwnd;
 	///////////////////////debug//////////////////////////////
 	//card debug1[10] = { {4,3},{2,0},{4,1},{5,0},{6,1},{7,3},{8,0},{9,1},{2,1},{3,1} };
@@ -143,10 +114,7 @@ class cGameEngine
 	//card debug5 = {12,3};
 	//////////////////////////////////////////////////////////
 
-	void UpdateUserGD()
-	{
-
-
+	void UpdateUserGD(){
 		hGD->dealer = sGD.dealer;
 		hGD->eGS = sGD.eGS;
 		hGD->eSS = sGD.eSS;
@@ -158,21 +126,15 @@ class cGameEngine
 		hGD->turn = sGD.turn;
 		hGD->river = sGD.river;
 		hGD->winner = sGD.winner;
-		for (int i = 0; i < 10; i++)
-		{
+		for (int i = 0; i < 10; i++){
 			hGD->player[i].allin = sGD.player[i].allin;
 			hGD->player[i].bet = sGD.player[i].bet;
-			
-				hGD->player[i].card1 = sGD.player[i].card1;
-				hGD->player[i].card2 = sGD.player[i].card2;
-			
-			if(sGD.showdown==0&&sGD.player[i].ingame==1&&sGD.player[i].fold==0&&sGD.player[i].human==0&&sGD.player[i].card1.f)
-			{
+			hGD->player[i].card1 = sGD.player[i].card1;
+			hGD->player[i].card2 = sGD.player[i].card2;
+			if(sGD.showdown==0&&sGD.player[i].ingame==1&&sGD.player[i].fold==0&&sGD.player[i].human==0&&sGD.player[i].card1.f){
 				hGD->player[i].card1 = { 1,1 };
 				hGD->player[i].card2 = { 1,1 };
 			}
-			
-
 			///////////////////////////////////////////////////
 			//hGD->player[i].card1 = sGD.player[i].card1;
 			//hGD->player[i].card2 = sGD.player[i].card2;
@@ -186,8 +148,6 @@ class cGameEngine
 			hGD->player[i].raise = sGD.player[i].raise;
 			hGD->player[i].stack = sGD.player[i].stack;
 			hGD->player[i].human = sGD.player[i].human;
-
-
 		}
 
 		if (sGD.showdown)
@@ -205,7 +165,6 @@ class cGameEngine
 	//returns an sValue object for ccc player
 	sValue ValueCalculate(int ccc)
 	{
-
 		///load temp
 		card ctab[7];
 		card temp;
@@ -244,7 +203,6 @@ class cGameEngine
 			}
 		}
 
-
 		//colour check
 		for (int j = 0; j < 4; j++)
 		{
@@ -281,8 +239,6 @@ class cGameEngine
 			else if (ctab[i + 1].f - ctab[i].f == 0);
 			else counter = 0;
 		}
-
-
 
 		//paircheck
 
@@ -344,8 +300,6 @@ class cGameEngine
 					counter = 0;
 					counter2--;
 				}
-
-
 			}
 		}
 
@@ -363,15 +317,10 @@ class cGameEngine
 				if (counter == counter2) { lowcard = ctab[i].f; break; }
 				if(i)if (ctab[i - 1].f == ctab[i].f)
 					counter++;
-
-
-
 			}
 		}
 
 		// highest combination seeking
-
-
 		if (poker) result = { 8,highcard,0,0 };
 		else if (caret) result = { 7,highcard2,0,0 };
 		else if (fullhouse) result = { 6,highcard2,lowcard,0 };
@@ -385,16 +334,10 @@ class cGameEngine
 			highcard = ctab[6].f;
 			result = { 0,highcard,0,0 };
 		}
-
-
-
-
-
 		return result;
-
 	}
 
-	///card1,fold,dealer,actual of all
+	//card1,fold,dealer,actual of all
 	int DealerRoll()
 	{
 		sGD.dealer = hGD->dealer = -1;
@@ -431,32 +374,7 @@ class cGameEngine
 		}
 		return 0;
 	}
-	//////////////////////////////////////////////////////////////////////////////////////////
-	std::wstring towstr(const std::string& s)												//
-	{																						//
 
-
-		int len;
-		int slength = (int)s.length() + 1;
-		len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0);
-		wchar_t* buf = new wchar_t[len];
-		MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
-		std::wstring r(buf);
-
-		LPCWSTR wr = r.c_str();
-		delete[] buf;
-		return wr;
-
-	}
-	std::wstring towstr(int k)
-	{
-		const std::string ss = (const std::string) std::to_string(k);
-		const std::string& s = ss;
-
-		return(towstr(ss));
-
-	}																						 //
-	///////////////////////////////////////////////////////////////////////////////////////////
 	///card1,card2 of all
 	void HandFill()
 	{
@@ -500,14 +418,10 @@ class cGameEngine
 public:
 
 	///all
-	cGameEngine(sInitData k, sGameData* s,HWND hwndd)
+	cGameEngine(sInitData k, sGameData* s)
 	{
-
-		hwnd = hwndd;
 		hGD = s;
 		hDeck = new deck;
-		
-		//////////
 		sGD.eGS = GS_DEALER;
 		sGD.eSS = SS_INIT;
 		nextGS = GS_DEALER;
@@ -551,13 +465,8 @@ public:
 			sGD.player[6].ingame = 0;
 			sGD.player[9].ingame = 0;
 		}
-
-		
-
 		UpdateUserGD();
 	}
-
-
 
 	///actual
 	int BiddingCheck()
@@ -582,7 +491,6 @@ public:
 			{
 				do
 				{
-
 					sGD.actual++;
 					if (sGD.actual >= 10)sGD.actual = 0;
 					if (sGD.actual == hGD->actual)
@@ -592,9 +500,7 @@ public:
 					}
 				} while (!(sGD.player[sGD.actual].ingame == 1 && sGD.player[sGD.actual].fold == 0 && sGD.player[sGD.actual].allin == 0));
 				if (sGD.player[sGD.actual].bet == sGD.maxbet&&sGD.maxbet > 0 && sGD.player[sGD.actual].raise == 1)result = 1;
-
 				if (sGD.player[sGD.actual].bet == sGD.maxbet&& sGD.player[sGD.actual].check == 1)result = 1;
-
 			}
 			if (result == 1)
 			{
@@ -604,29 +510,21 @@ public:
 				}
 				 if (sGD.eGS == GS_RIVER)sGD.showdown = 1;
 			}
-
-
 		}
 		else result = 1;
-
 		return result;
-
-
-
 	}
 
 	////fold,check,raise,allin,stack,bet, of actual player, maxbet
 	void Bet(int k, int r = 0)
 	{
-
 		int act = sGD.actual + r;
 		if (act >= 10)act = 0;
 		if (k == 0 && sGD.player[act].bet < sGD.maxbet)
 		{
 			sGD.player[act].fold = 1;
 			sGD.player[act].card1 = { 0,0 };
-			sGD.player[act].card2 = { 0,0 };
-			
+			sGD.player[act].card2 = { 0,0 };			
 		}
 		else if (k == 0 && sGD.maxbet == 0)sGD.player[act].check = 1;
 		else sGD.player[act].raise = 1;
@@ -642,123 +540,101 @@ public:
 		sGD.player[act].stack = sGD.player[act].stack - k;
 	}
 
-
 	void temppostflop()
 	{
 		srand(static_cast<unsigned int>(time(NULL)));
-
-
 		int result = rand() % 7;
 		if (result <2)Bet(0);
 		else if (result > 5)Bet(sGD.maxbet + sGD.stack);
-		else Bet(sGD.maxbet);
-		
+		else Bet(sGD.maxbet);		
 	}
+
 	void BotBet(int n)
 	{
 		int bet = 0;
 		switch (sGD.eGS)
 		{
-		case GS_PREFLOP:
-		{
-			//handvalue 
-			bool pair = 0;
-			bool colour = 0;
-			bool highcard1 = 0;
-			bool highcard2 = 0;
-			bool as1 = 0;
-			bool as2 = 0;
-			bool raise = 0;
-			bool connector = 0;
-
-			int pairv = 50;
-			int colourv = 20;
-			int connectorv = 20;
-			int highcardv = 10;
-			int asv = 10;
-
-
-
-
-			if (sGD.player[n].card1.f == sGD.player[n].card2.f) pair = 1;
-			if (sGD.player[n].card1.f == sGD.player[n].card2.f) colour = 1;
-			if (sGD.player[n].card1.f >= 10) highcard1 = 1;
-			if (sGD.player[n].card2.f >= 10) highcard2 = 1;
-			if (sGD.player[n].card1.f == 14) as1 = 1;
-			if (sGD.player[n].card2.f == 14) as2 = 1;
-			if ((sGD.player[n].card2.f - sGD.player[n].card1.f == 1) || (sGD.player[n].card2.f - sGD.player[n].card1.f == -1)) connector = 1;
-			int value = pair*pairv + colour*colourv + highcard1*highcardv + highcard2*highcardv + as1*asv + as2*asv + connector*connectorv + sGD.player[n].card1.f*sGD.player[n].card2.f;
-			//position
-			int counter = 0;
-			int counter2 = n;
-			for (int i = 0; i < 10; i++)
+			case GS_PREFLOP:
 			{
-				if (counter2 == sGD.dealer)break;
-				counter++;
-				counter2++;
-				if (counter2 >= 10)counter2 -= 10;
-
-
+				//handvalue 
+				bool pair = 0;
+				bool colour = 0;
+				bool highcard1 = 0;
+				bool highcard2 = 0;
+				bool as1 = 0;
+				bool as2 = 0;
+				bool raise = 0;
+				bool connector = 0;
+				int pairv = 50;
+				int colourv = 20;
+				int connectorv = 20;
+				int highcardv = 10;
+				int asv = 10;
+				if (sGD.player[n].card1.f == sGD.player[n].card2.f) pair = 1;
+				if (sGD.player[n].card1.f == sGD.player[n].card2.f) colour = 1;
+				if (sGD.player[n].card1.f >= 10) highcard1 = 1;
+				if (sGD.player[n].card2.f >= 10) highcard2 = 1;
+				if (sGD.player[n].card1.f == 14) as1 = 1;
+				if (sGD.player[n].card2.f == 14) as2 = 1;
+				if ((sGD.player[n].card2.f - sGD.player[n].card1.f == 1) || (sGD.player[n].card2.f - sGD.player[n].card1.f == -1)) connector = 1;
+				int value = pair*pairv + colour*colourv + highcard1*highcardv + highcard2*highcardv + as1*asv + as2*asv + connector*connectorv + sGD.player[n].card1.f*sGD.player[n].card2.f;
+				//position
+				int counter = 0;
+				int counter2 = n;
+				for (int i = 0; i < 10; i++)
+				{
+					if (counter2 == sGD.dealer)break;
+					counter++;
+					counter2++;
+					if (counter2 >= 10)counter2 -= 10;
+				}
+				int position = 50 - (5 * counter);
+				//totalbet, maxbet on table
+				int totalbet = 0;
+				for (int i = 0; i < 10; i++)
+					if (n != i)totalbet += sGD.player[i].bet;
+				int maxbet = 0;
+				for (int i = 0; i < 10; i++)
+					if(i!=n)
+					if (sGD.player[i].bet > maxbet)maxbet = sGD.player[i].bet;
+				maxbet = maxbet - sGD.player[n].bet;
+				//decision
+				if (maxbet < 2 * cBlind::getblind())value += position;
+				if (value < 90) Bet(0);
+				else if (value >= 90 && value < 150)
+				{
+					if (maxbet < 2 * cBlind::getblind())Bet(maxbet);
+					else Bet(0);
+				}
+				else if (value >= 150 && value <= 200)
+				{
+					if (maxbet < 2 * cBlind::getblind())Bet((maxbet+ sGD.player[n].bet) * 3);
+					else if (maxbet >= 2 * cBlind::getblind() &&maxbet < 5 * cBlind::getblind())Bet(maxbet);
+					else Bet(0);
+				}
+				else Bet(maxbet * 3);
+				break;
 			}
-
-			int position = 50 - (5 * counter);
-			//totalbet, maxbet on table
-			int totalbet = 0;
-			for (int i = 0; i < 10; i++)
-				if (n != i)totalbet += sGD.player[i].bet;
-			int maxbet = 0;
-			for (int i = 0; i < 10; i++)
-				if(i!=n)
-				if (sGD.player[i].bet > maxbet)maxbet = sGD.player[i].bet;
-			maxbet = maxbet - sGD.player[n].bet;
-			//decision
-			if (maxbet < 2 * cBlind::getblind())value += position;
-
-			if (value < 90) Bet(0);
-			else if (value >= 90 && value < 150)
-			{
-				if (maxbet < 2 * cBlind::getblind())Bet(maxbet);
-				else Bet(0);
-			}
-			else if (value >= 150 && value <= 200)
-			{
-				if (maxbet < 2 * cBlind::getblind())Bet((maxbet+ sGD.player[n].bet) * 3);
-				else if (maxbet >= 2 * cBlind::getblind() &&maxbet < 5 * cBlind::getblind())Bet(maxbet);
-				else Bet(0);
-			}
-			else Bet(maxbet * 3);
-
-			break;
-		}
-
 		
-		case GS_FLOP:
-		{
-			temppostflop();
-			break;
-		}
-		case GS_TURN:
-		{
-			temppostflop();
-			break;
-		}
-		case GS_RIVER:
-		{
-			temppostflop();
-			break;
-		}
+			case GS_FLOP:{
+				temppostflop();
+				break;
+			}
+			case GS_TURN:{
+				temppostflop();
+				break;
+			}
+			case GS_RIVER:{
+				temppostflop();
+				break;
+			}
 
 		}
-		
-	
+			
 	}
-
 
 	int Bidding(GameStage egs)
 	{
-
-
-
 		if (egs == GS_PREFLOP)
 		{
 			int raises = 0;
@@ -1223,9 +1099,7 @@ public:
 		
 		break;
 		}
-
 		UpdateUserGD();
-
 	}
 };
 

@@ -16,8 +16,6 @@ public:
 		return constObj;
 	}
 
-
-
 	int reset()
 	{
 		if (hSubMenu)
@@ -28,8 +26,6 @@ public:
 		return 0;
 	}
 
-
-
 	int Command(int x)
 	{
 		int result = 0;
@@ -37,15 +33,13 @@ public:
 		0-New game
 		1-Load/save
 		*/
+	
 
 
-		
-		
+
 			const int parameter = x - index;
 
 			switch (parameter)
-
-
 			{
 			case 0:
 				if (hSubMenu == NULL)

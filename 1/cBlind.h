@@ -1,12 +1,9 @@
 #pragma once
 class cBlind
 {
-private:
-	static int blind[10];
+	static int blind[];
 	static int i;
 public:
-
-
 	static void increase()
 	{
 		if (i<9)i++;
@@ -15,5 +12,5 @@ public:
 	{
 		return blind[i];
 	}
-
 };
+

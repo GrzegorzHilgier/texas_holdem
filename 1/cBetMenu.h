@@ -20,7 +20,6 @@ public:
 		hGP->StopTimer();
 		GD = hGP->GetGD();
 
-
 		//drawing bet buttons
 		if(GD.maxbet==0&&GD.player[GD.actual].raise==0)
 		drawObj(L"BUTTON", L"CHECK", 0 , 40, 100, 30);
@@ -41,8 +40,7 @@ public:
 			si.cbSize = sizeof(SCROLLINFO);
 			si.fMask = SIF_RANGE | SIF_POS;
 			si.nMin = min;
-			si.nMax = max;
-			
+			si.nMax = max;			
 			si.nPos = min;
 			SetScrollInfo(hScrollBar, SB_CTL, &si, TRUE);
 		}

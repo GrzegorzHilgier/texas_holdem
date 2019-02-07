@@ -19,11 +19,8 @@ class cAnimation:public cScript
 	cMainScreen* hMS;
 public:
 	cAnimation(HBITMAP , int , int , int , int , int , int , int , int ,int=0);
-
 	int init2();
-
 	int Command(int c) { return 0; }
-
 	int Timer(int t);
 	int Scroll(int k) { return 0; }
 				

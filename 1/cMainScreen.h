@@ -1,13 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-
-
-
-
-
-
-
 class cMainScreen 
 {
 private:
@@ -21,17 +14,11 @@ private:
 	HINSTANCE hInst;
 	HWND hWnd;
 
-	
 public:
 	cMainScreen(HINSTANCE, HWND, HBITMAP=0);
-
-	
-
-	void rectupdate(HBITMAP, int, int, int, int,int,int,int=1);
-	
+	void rectupdate(HBITMAP, int, int, int, int,int,int,int=1);	
 	void update(HBITMAP);
 	void refresh();
-
 	~cMainScreen();
 		
 };

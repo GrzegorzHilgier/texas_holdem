@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 //Implements movement animation of object BITMAP from start coords to stop coords
+//TODO: change constructor -several ints into points or vector object
 class cAnimation:public cScript
 {
 	int iteration;

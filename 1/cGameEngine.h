@@ -52,6 +52,20 @@ public:
 	}
 };
 
+class cBlind
+{
+	static int blind[];
+	static int i;
+public:
+	static void increase()
+	{
+		if (i < 9)i++;
+	}
+	static int getblind()
+	{
+		return blind[i];
+	}
+};
 //Major stage
 enum GameStage { GS_DEALER, GS_PREFLOP,GS_HUMAN,GS_FLOP,GS_TURN,GS_RIVER, GS_ENDTURN,GS_ENDGAME};
 //Minor

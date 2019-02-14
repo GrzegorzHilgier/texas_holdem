@@ -12,7 +12,6 @@ class cBetMenu : public cMenu
 
 public:
 	int init2();
-
 	int Command(int x);
 	int Scroll(int wParam);
 	int Timer(int x) { return 0; }

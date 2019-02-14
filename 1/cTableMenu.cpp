@@ -3,12 +3,12 @@
 int cTableMenu::init2()
 {
 	/////Load card bitmap and setup card height and width
-	hBitmapCards = (HBITMAP)LoadImage(hInst, L"cards2.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	hBitmapCards = (HBITMAP)LoadImage(hInst, L"Resources/cards.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	GetObject(hBitmapCards, sizeof(bitmap), &bitmap);
 	cardwidth = (bitmap.bmWidth / CIR);
 	cardheight = (bitmap.bmHeight / CIC);
 	////// Load dealer bitmap and setup height and width
-	hBitmapDealer = (HBITMAP)LoadImage(hInst, L"dealer.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	hBitmapDealer = (HBITMAP)LoadImage(hInst, L"Resources/dealer.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	GetObject(hBitmapDealer, sizeof(bitmap), &bitmap);
 	dealerwidth = bitmap.bmWidth;
 	dealerheight = bitmap.bmHeight;

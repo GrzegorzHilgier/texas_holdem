@@ -11,7 +11,7 @@ cMainScreen::cMainScreen(HINSTANCE hInstt, HWND hWndd,HBITMAP h)
 
 	//wgranie bitmap
 	if (h) hBitmapMain = h;
-	else hBitmapMain = (HBITMAP)LoadImage(hInst, L"main.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	else hBitmapMain = (HBITMAP)LoadImage(hInst, L"Resources/main.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 
 	hdc = GetDC(hWnd);
 	//zaladowanie do bufora hdccurrent domyslnej bitmapy

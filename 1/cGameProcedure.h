@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-class cGameProcedure : public cScript
+class cGameProcedure : public cMenu
 {	
 	cMainMenu* hMenu;
 	cMainScreen* hMS;

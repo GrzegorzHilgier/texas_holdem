@@ -1,7 +1,7 @@
 
 #pragma once
 #include "stdafx.h"
-class cDebugger : public cScript
+class cDebugger : public cMenu
 {
 	cGameProcedure* hGP;
 	sGameData GD;

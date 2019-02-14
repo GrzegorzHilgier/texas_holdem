@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 
-int cScript::init(HINSTANCE hInstt, HWND hWndd, int xin, int yin, WSInterface  * hWSIntefrace, cScript* hP)
+int cMenu::init(HINSTANCE hInstt, HWND hWndd, int xin, int yin, WSInterface  * hWSIntefrace, cMenu* hP)
 {
 	hInst = hInstt;
 	hWnd = hWndd;
@@ -19,7 +19,7 @@ int cScript::init(HINSTANCE hInstt, HWND hWndd, int xin, int yin, WSInterface  *
 }
 
 
-HWND cScript::drawObj(LPCWSTR type, LPCWSTR name, int xx, int yy, int width, int heigh, int visible)
+HWND cMenu::drawObj(LPCWSTR type, LPCWSTR name, int xx, int yy, int width, int heigh, int visible)
 {
 	HWND hwnd = NULL;
 	if (constObj < MAX_SCRIPT_OBJECTS)
@@ -41,7 +41,7 @@ HWND cScript::drawObj(LPCWSTR type, LPCWSTR name, int xx, int yy, int width, int
 	return hwnd;
 }
 
-std::wstring cScript::towstr(const std::string& s)
+std::wstring cMenu::towstr(const std::string& s)
 {
 
 
@@ -57,7 +57,7 @@ std::wstring cScript::towstr(const std::string& s)
 	return wr;
 
 }
-std::wstring cScript::towstr(int k)
+std::wstring cMenu::towstr(int k)
 {
 	const std::string ss = (const std::string) std::to_string(k);
 	const std::string& s = ss;

@@ -8,7 +8,7 @@ int cGameProcedure::init2()
 	//main screen handle and setup
 	
 	hMS = hWSI->GethMS();
-	h = (HBITMAP)LoadImage(hInst, L"main.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	h = (HBITMAP)LoadImage(hInst, L"Resources/main.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	if (h)hMS->update(h);
 	DeleteObject(h);
 	h = NULL;
@@ -66,7 +66,7 @@ void cGameProcedure::GameReset()
 	hMenu->reset();
 	//Bitmap update
 	if(h)DeleteObject(h);
-	h = (HBITMAP)LoadImage(hInst, L"table2.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	h = (HBITMAP)LoadImage(hInst, L"Resources/table.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	if (h)hMS->update(h);
 
 	//Game init data structure setup

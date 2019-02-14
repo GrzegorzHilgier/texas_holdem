@@ -26,7 +26,7 @@ WSInterface::~WSInterface()
 	hMS = NULL;
 }
 
-int WSInterface::GetIndex(cScript* hScript)
+int WSInterface::GetIndex(cMenu* hScript)
 {
 	int result = 0;
 	
@@ -72,7 +72,7 @@ int WSInterface::Timer(int T_Command)
 	return 0;
 
 }
-void WSInterface::RegisterScroll(cScript* s)
+void WSInterface::RegisterScroll(cMenu* s)
 {
 	hScript = s;
 }

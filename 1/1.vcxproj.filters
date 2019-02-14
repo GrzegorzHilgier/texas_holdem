@@ -39,9 +39,6 @@
     <ClInclude Include="cSubMenu1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cScript.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cSeatMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,7 +63,7 @@
     <ClInclude Include="cBetMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cBlind.h">
+    <ClInclude Include="cMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -81,9 +78,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WSInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cScript.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cGameProcedure.cpp">
@@ -101,6 +95,21 @@
     <ClCompile Include="cBlind.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cBetMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cMainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cSeatMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cTableMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="1.rc">
@@ -112,15 +121,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="1.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="cards.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="main.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="table.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

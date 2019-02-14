@@ -2,6 +2,7 @@
 #include "stdafx.h"
 //Gets bet from player
 //ivokes hGP->betMenuFinish()
+//TODO implement delegate
 class cBetMenu : public cMenu
 {
 	cGameProcedure* hGP;
@@ -10,7 +11,6 @@ class cBetMenu : public cMenu
 	HWND hStatic;
 	int pozycja;
 	int min, max, cur;
-
 public:
 	int init2();
 	int Command(int x);

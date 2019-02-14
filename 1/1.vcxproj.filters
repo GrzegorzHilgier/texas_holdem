@@ -107,6 +107,9 @@
     <ClCompile Include="cSeatMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cTableMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="1.rc">
@@ -120,13 +123,7 @@
     <Image Include="1.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="cards.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="main.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="table.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

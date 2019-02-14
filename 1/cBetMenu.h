@@ -2,7 +2,7 @@
 #include "stdafx.h"
 //Gets bet from player
 //ivokes hGP->betMenuFinish()
-//TODO implement delegate
+//TODO implement delegate instead of hGP->betMenufinish()
 class cBetMenu : public cMenu
 {
 	cGameProcedure* hGP;
@@ -11,10 +11,11 @@ class cBetMenu : public cMenu
 	HWND hStatic;
 	int pozycja;
 	int min, max, cur;
-public:
 	int init2();
 	int Command(int x);
 	int Scroll(int wParam);
 	int Timer(int x) { return 0; }
+public:
+	//TODO: implement delegate instead of hidden method invoke
 	~cBetMenu();
 };

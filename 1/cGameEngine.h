@@ -146,11 +146,9 @@ class cGameEngine
 public:
 
 	cGameEngine(sInitData k, sGameData* s);
-
-	~cGameEngine();
-
-	//Main function, game algorithm, updates user Game Data, 
+	//Updates user Game Data after each call
 	void Trigger(int playerBet);
+	~cGameEngine();
 };
 
 

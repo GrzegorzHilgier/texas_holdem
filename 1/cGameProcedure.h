@@ -14,24 +14,29 @@ class cGameProcedure : public cMenu
 	sInitData sID;
 	cDebugger* hDebugger;
 	int HumanBet;
-	
+	int Timer(int);
+	int Scroll(int k) { return 0; }
+	int Command(int);
+	int init2();
+
 public:
+
 	LPCWSTR nickname[10];
 	bool pause;
 	HBITMAP h;
+
 	cGameProcedure();
+
+	//Methods used by child menus
 	cMainMenu* GethMenu();
-	int init2();
 	void DeleteChild();
 	void StopTimer(int=0);
 	void StartTimer(int=0,int=0);
-	int Command(int);
 	void GameReset();
 	void SeatMenuFinish(int);
 	void BetMenuFinish(int);
-	int Timer(int);
-	int Scroll(int k) { return 0; }
 	sGameData GetGD();
 	sInitData GetID();
+
 	~cGameProcedure();
 };

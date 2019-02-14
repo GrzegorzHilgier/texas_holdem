@@ -5,11 +5,8 @@ int cSubMenu1::init2()
 
 	cMM = dynamic_cast<cMainMenu*>(hParrent);
 	
-
 	cMM->sMD.players = 10;
 	cMM->sMD.stack = 1500;
-
-
 
 
 	drawObj(L"BUTTON", L"-", 10, 60, 30, 20);
@@ -81,12 +78,9 @@ int cSubMenu1::Command(int x)
 int cSubMenu1::Timer(int k) { return 0; }
 cSubMenu1::~cSubMenu1()
 {
-
 	for (int i = 0; i < constObj; i++) DestroyWindow(hObj[i]);
-
 
 	hWSI->ReleaseScrIndex(index);
 	hWSI = NULL;
-
 
 }

@@ -8,7 +8,6 @@ cMainScreen::cMainScreen(HINSTANCE hInstt, HWND hWndd,HBITMAP h)
 	hInst = hInstt;
 	hWnd = hWndd;
 	
-
 	//wgranie bitmap
 	if (h) hBitmapMain = h;
 	else hBitmapMain = (HBITMAP)LoadImage(hInst, L"Resources/main.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
@@ -24,13 +23,11 @@ cMainScreen::cMainScreen(HINSTANCE hInstt, HWND hWndd,HBITMAP h)
 	BitBlt(hdc, 0, 0, bitmap.bmWidth, bitmap.bmHeight, hdcCurrent, 0, 0, SRCCOPY);
 	ReleaseDC(hWnd, hdc);
 	
-
-
 }
 
 
 
-void cMainScreen::rectupdate(HBITMAP h, int xout, int yout, int xin, int yin,int width, int height, int remember)
+void cMainScreen::rectupdate(HBITMAP h, int xout, int yout, int xin, int yin,int width, int height, bool remember)
 {
 	
 		HBITMAP update;
@@ -65,9 +62,6 @@ void cMainScreen::rectupdate(HBITMAP h, int xout, int yout, int xin, int yin,int
 		SelectObject(hdcNEW, old);
 		DeleteDC(hdcNEW);
 }
-
-
-
 
 
 void cMainScreen::update(HBITMAP h)

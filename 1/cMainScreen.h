@@ -16,7 +16,9 @@ private:
 
 public:
 	cMainScreen(HINSTANCE, HWND, HBITMAP=0);
-	void rectupdate(HBITMAP, int, int, int, int,int,int,int=1);	
+	//prints rectangle(xin, yin, width, height) from HBITMAP onto mainscreen (xout,yout)
+	void rectupdate(HBITMAP h, int xout, int yout, int xin, int yin, int width, int height, bool remember = TRUE);
+	//updates whole main screen with HBITMAP
 	void update(HBITMAP);
 	void refresh();
 	~cMainScreen();

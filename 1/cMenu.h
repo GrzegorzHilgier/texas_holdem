@@ -6,6 +6,7 @@ class WSInterface;
 //implements virtual functions usefull for WSInterface
 class cMenu
 { protected:
+	friend class WSInterface;
 	HWND hWnd;
 	HINSTANCE hInst;
 	WSInterface* hWSI;

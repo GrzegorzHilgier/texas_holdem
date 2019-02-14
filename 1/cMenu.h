@@ -10,7 +10,6 @@ class cMenu
 	WSInterface* hWSI;
 	cMenu* hParrent;
 	int index;
-	
 	HWND hObj[MAX_SCRIPT_OBJECTS];
 	int constObj;
 	int x, y;
@@ -19,7 +18,6 @@ public:
 	
 	virtual int init2() = 0;
 	int init(HINSTANCE, HWND, int, int, WSInterface*,cMenu*);
-
 
 	HWND drawObj(LPCWSTR , LPCWSTR , int , int , int , int, int=1 );
 	

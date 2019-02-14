@@ -173,6 +173,7 @@
     <ClCompile Include="cMainMenu.cpp" />
     <ClCompile Include="cMenu.cpp" />
     <ClCompile Include="cMainScreen.cpp" />
+    <ClCompile Include="cSeatMenu.cpp" />
     <ClCompile Include="cSubMenu1.cpp" />
     <ClCompile Include="cAnimation.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1.cpp" />
+    <ClCompile Include="cBetMenu.cpp" />
     <ClCompile Include="cBlind.cpp" />
     <ClCompile Include="cDebugger.cpp" />
     <ClCompile Include="cGameProcedure.cpp" />

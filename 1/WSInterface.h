@@ -1,12 +1,6 @@
 #pragma once
 #include "stdafx.h"
-
-
-
-
-
-
-
+//Big event handler, sends event message to appropiate menu
 
 class WSInterface : public cMenu
 {
@@ -18,10 +12,6 @@ public:
 	bool pause;
 	WSInterface(HINSTANCE hInstt, HWND hWndd);
 	~WSInterface();
-	
-
-
-	
 	int GetIndex(cMenu*);
 	void ReleaseScrIndex(int);
 	void refresh();

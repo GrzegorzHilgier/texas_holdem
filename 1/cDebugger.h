@@ -1,6 +1,8 @@
 
 #pragma once
 #include "stdafx.h"
+//Only for debug
+//TODO add preprocessor statement to build only in debug compilation
 class cDebugger : public cMenu
 {
 	cGameProcedure* hGP;

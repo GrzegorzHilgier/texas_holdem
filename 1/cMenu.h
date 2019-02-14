@@ -3,6 +3,7 @@
 class WSInterface;
 
 //parent class for menu objects
+//implements virtual functions usefull for WSInterface
 class cMenu
 { protected:
 	HWND hWnd;

@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #define CIR 14
 #define CIC 4
+//Implement all outpus controls and handle animations
 
 class cTableMenu : public cMenu
 {

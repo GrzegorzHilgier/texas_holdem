@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
-
+//implements main app alghoritm
+//Creates all menus
 class cGameProcedure : public cMenu
 {	
 	cMainMenu* hMenu;

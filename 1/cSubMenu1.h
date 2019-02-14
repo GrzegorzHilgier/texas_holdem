@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+//Gets nick and other game data before game startum
 class cSubMenu1 : public cMenu
 {
 

@@ -1,5 +1,7 @@
 #pragma once
 #include "stdafx.h"
+//Controls for game setup
+//creates submenu
 class cMainMenu : public cMenu
 {	
 	cMenu* hSubMenu;

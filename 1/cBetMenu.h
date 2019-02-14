@@ -1,12 +1,13 @@
 #pragma once
 #include "stdafx.h"
+//Gets bet from player
+//ivokes hGP->betMenuFinish()
 class cBetMenu : public cMenu
 {
 	cGameProcedure* hGP;
 	sGameData GD;
 	HWND hScrollBar;
 	HWND hStatic;
-	
 	int pozycja;
 	int min, max, cur;
 

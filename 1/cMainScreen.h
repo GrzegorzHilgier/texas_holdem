@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-
+//Implements few usefull methods for painting in mainscreen
 class cMainScreen 
 {
 private:

@@ -1,6 +1,8 @@
 #include <ctime>
 #include "cBlind.h"
-
+//////////////////////////
+//All in game alghorithms
+//////////////////////////
 
 // instance of card contain figure and colour
 struct card{

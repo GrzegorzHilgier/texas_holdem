@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+//Only for choosing place by player
 class cSeatMenu : public cMenu
 {
 	cGameProcedure* hGP;

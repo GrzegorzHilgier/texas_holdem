@@ -1,13 +1,8 @@
 #pragma once
 #include "stdafx.h"
 //Implements movement animation of object BITMAP from start coords to stop coords
-<<<<<<< HEAD
-//TODO: change constructor -several ints into points or vector object
-class cAnimation:public cScript
-=======
 //TODO change constructor parameters to vector instead of several integers
 class cAnimation:public cMenu
->>>>>>> laststable
 {
 	int iteration;
 	int xcurrent;
@@ -29,8 +24,6 @@ public:
 	int init2();
 	int Command(int c) { return 0; }
 	int Timer(int t);
-	int Scroll(int k) { return 0; }
-				
+	int Scroll(int k) { return 0; }				
 	~cAnimation();
-
 };

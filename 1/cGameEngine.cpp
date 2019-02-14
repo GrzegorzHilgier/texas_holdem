@@ -1,5 +1,5 @@
-#include "cGameEngine.h"
-#include <ctime.h>
+#include "stdafx.h"
+
 
 	
 	void cGameEngine::UpdateUserGD() {
@@ -402,7 +402,7 @@
 	}
 
 	////fold,check,raise,allin,stack,bet, of actual player, maxbet
-	void cGameEngine::Bet(int k, int r = 0)
+	void cGameEngine::Bet(int k, int r)
 	{
 		int act = sGD.actual + r;
 		if (act >= 10)act = 0;
@@ -805,7 +805,15 @@
 			nextGS = gamestage;
 		}
 	}
+	void cGameEngine::ChangeStage(StageStage stagestage, bool flagss)
+	{
+		if (flagss)
+		{
+			changeSS = 1;
+			nextSS = stagestage;
+		}
 
+	}
 	void cGameEngine::ChangeStage(GameStage gamestage, bool flaggs, StageStage stagestage, bool flagss)
 	{
 		ChangeStage(gamestage, flaggs);

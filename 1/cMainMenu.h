@@ -1,10 +1,10 @@
 #pragma once
 #include "stdafx.h"
-class cMainMenu : public cScript
+class cMainMenu : public cMenu
 {
 	
 	
-	cScript* hSubMenu;
+	cMenu* hSubMenu;
 
 public:
 	MenuData sMD;

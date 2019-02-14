@@ -154,7 +154,7 @@
     <ClInclude Include="cGameEngine.h" />
     <ClInclude Include="cGameProcedure.h" />
     <ClInclude Include="cMainMenu.h" />
-    <ClInclude Include="cScript.h" />
+    <ClInclude Include="cMenu.h" />
     <ClInclude Include="cMainScreen.h" />
     <ClInclude Include="cSubMenu1.h" />
     <ClInclude Include="cTableMenu.h" />
@@ -170,7 +170,7 @@
     <ClCompile Include="cBlind.cpp" />
     <ClCompile Include="cDebugger.cpp" />
     <ClCompile Include="cGameProcedure.cpp" />
-    <ClCompile Include="cScript.cpp" />
+    <ClCompile Include="cMenu.cpp" />
     <ClCompile Include="cMainScreen.cpp" />
     <ClCompile Include="cSubMenu1.cpp" />
     <ClCompile Include="cAnimation.cpp" />

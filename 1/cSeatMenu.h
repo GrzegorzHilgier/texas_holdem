@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-class cSeatMenu : public cScript
+class cSeatMenu : public cMenu
 {
 	cGameProcedure* hGP;
 	sGameData GD;

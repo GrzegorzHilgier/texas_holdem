@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-class cSubMenu1 : public cScript
+class cSubMenu1 : public cMenu
 {
 
 	cMainMenu* cMM;

@@ -3,7 +3,7 @@
 #define CIR 14
 #define CIC 4
 
-class cTableMenu : public cScript
+class cTableMenu : public cMenu
 {
 
 	// matrix with position of all components top left x,y for all players

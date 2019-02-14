@@ -27,7 +27,7 @@
 #define MAX_NICKNAME 10
 
 
-class cScript;
+class cMenu;
 class cMainMenu;
 class cMainScreen;
 class cSeatMenu;
@@ -42,7 +42,7 @@ class cBetMenu;
 
 #include "cGameEngine.h"
 #include "Structures.h"
-#include "cScript.h"
+#include "cMenu.h"
 #include "cMainScreen.h"
 #include "WSInterface.h"
 #include "cGameProcedure.h"

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 //Implements movement animation of object BITMAP from start coords to stop coords
-class cAnimation:public cScript
+class cAnimation:public cMenu
 {
 	int iteration;
 	int xcurrent;

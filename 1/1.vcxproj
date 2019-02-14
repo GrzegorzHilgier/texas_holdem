@@ -169,6 +169,7 @@
     <ClCompile Include="cBetMenu.cpp" />
     <ClCompile Include="cBlind.cpp" />
     <ClCompile Include="cDebugger.cpp" />
+    <ClCompile Include="cGameEngine.cpp" />
     <ClCompile Include="cGameProcedure.cpp" />
     <ClCompile Include="cMainMenu.cpp" />
     <ClCompile Include="cMenu.cpp" />

@@ -4,12 +4,16 @@
 //All in game alghorithms
 //////////////////////////
 
+//Major stage
+enum GameStage { GS_DEALER, GS_PREFLOP, GS_HUMAN, GS_FLOP, GS_TURN, GS_RIVER, GS_ENDTURN, GS_ENDGAME };
+//Minor
+enum StageStage { SS_INIT, SS_BIDDING, SS_CLEAR };
+
 // instance of card contain figure and colour
 struct card{
 	int f;
 	int c;
 };
-
 // usefull in definiotion of player cards value
 struct sValue{
 	int combination;
@@ -17,43 +21,16 @@ struct sValue{
 	int lowcard;
 	int kicker;
 };
-
+//Card deck
 class deck{
 	bool d[52];
 	int cleft;
 public:
-	deck(){
-		Shuffle();
-		srand(static_cast<unsigned int>(time(NULL)));
-	}
-
-	void Shuffle(){
-		for (int i = 0; i < 52; i++) d[i] = 1;
-		cleft = 52;
-	}
-
-	card CardDraw(){
-		card x = { -1,-1 };
-
-		if (cleft > 0){
-			int k = rand() % cleft;
-			int c = 0;
-			int i;
-			for (i = 0; i < 52; i++){
-				if (d[i] == 1){
-					if (c == k)break;
-					else c++;
-				}
-			}
-			d[i] = 0;
-			cleft--;
-			x.f = (i / 4) + 2;
-			x.c = i % 4;
-		}
-		return x;
-	}
+	deck();
+	void Shuffle();
+	card CardDraw();
 };
-
+//Represents actual blind value
 class cBlind
 {
 	static int blind[];
@@ -68,10 +45,7 @@ public:
 		return blind[i];
 	}
 };
-//Major stage
-enum GameStage { GS_DEALER, GS_PREFLOP,GS_HUMAN,GS_FLOP,GS_TURN,GS_RIVER, GS_ENDTURN,GS_ENDGAME};
-//Minor
-enum StageStage{SS_INIT,SS_BIDDING,SS_CLEAR};
+
 
 struct sInitData{
 	int players;

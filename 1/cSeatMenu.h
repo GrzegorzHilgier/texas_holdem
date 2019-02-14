@@ -1,18 +1,19 @@
 #pragma once
 #include "stdafx.h"
-//Only for choosing place by player
+//Choosing sitting place by player
+//invokes hGP->SeatMenuFinish(parameter);
+//TODO: change invoke with delegate or etc
 class cSeatMenu : public cMenu
 {
 	cGameProcedure* hGP;
-	sGameData GD;
 	sInitData ID;
-
-public:
 	int init2();
-
 	int Command(int x);
 	int Scroll(int k) { return 0; }
 	int Timer(int x) { return 0; }
+
+public:
+
 	~cSeatMenu();
 
 };

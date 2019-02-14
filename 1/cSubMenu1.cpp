@@ -71,8 +71,6 @@ int cSubMenu1::Command(int x)
 
 	}
 
-
-
 	return(result);
 }
 int cSubMenu1::Timer(int k) { return 0; }

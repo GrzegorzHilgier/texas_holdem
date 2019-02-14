@@ -5,7 +5,7 @@ int cSeatMenu::init2()
 	//Stop Parrent timer
 	hGP->StopTimer();
 	//Get gamedata
-	GD = hGP->GetGD();
+	//GD = hGP->GetGD();
 	ID = hGP->GetID();
 	//drawing seat choose button
 

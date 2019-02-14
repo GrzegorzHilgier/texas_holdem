@@ -1,6 +1,39 @@
 #include "stdafx.h"
 
 
+
+
+	deck::deck() {
+		Shuffle();
+		srand(static_cast<unsigned int>(time(NULL)));
+	}
+
+	void deck::Shuffle() {
+		for (int i = 0; i < 52; i++) d[i] = 1;
+		cleft = 52;
+	}
+
+	card deck::CardDraw() {
+		card x = { -1,-1 };
+
+		if (cleft > 0) {
+			int k = rand() % cleft;
+			int c = 0;
+			int i;
+			for (i = 0; i < 52; i++) {
+				if (d[i] == 1) {
+					if (c == k)break;
+					else c++;
+				}
+			}
+			d[i] = 0;
+			cleft--;
+			x.f = (i / 4) + 2;
+			x.c = i % 4;
+		}
+		return x;
+	}
+
 	
 	void cGameEngine::UpdateUserGD() {
 		hGD->dealer = sGD.dealer;

@@ -8,18 +8,27 @@ class WSInterface : public cMenu
 	cGameProcedure* hGameProcedure;
 	cMainScreen* hMS;
 	cMenu* hScript;
+	int init2() { return 0; };
 public:
 	bool pause;
 	WSInterface(HINSTANCE hInstt, HWND hWndd);
 	~WSInterface();
+
+	//all menus calls below method when created
 	int GetIndex(cMenu*);
+
+	//all menus calles below method when destroyed
 	void ReleaseScrIndex(int);
+
+	//Event distribution (used by win32 handle script
 	void refresh();
 	int Command(int CM_Command);
-	int Timer(int);
-	int init2() { return 0; };
-	int Scroll(int);
+	int Timer(int CM_Command);
+	int Scroll(int CM_Command);
+
+	//Required if scroll control operating
 	void RegisterScroll(cMenu*);
+	//Get acess to important objects
 	cMainScreen* GethMS();
 	cGameProcedure* GethGP();
 };

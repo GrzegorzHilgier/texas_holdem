@@ -51,31 +51,31 @@ class cTableMenu : public cMenu
 	int dealerheight;
 	int dealerx;
 	int dealery;
-	
 
-	public:
+	int init2();
+	int Timer(int t);
+	int Command(int x) { return(0); }
+	int Scroll(int k) { return 0; }
+	void DealerMove();
+	void inciteration();
+	// screen data update
+	void CardUpdate();
+	void BetUpdate();
+	// animation procedures
+	void DealerRollTimer(int t);
+	void TurnTimer();
+	void RiverTimer();
+	void FlopTimer(int t);
+	void ShuffleTimer(int t);
+	void EndturnTimer();
 	
-		
-		int init2();
-		//usefull methods
+	public:	
+		//Methods used to stop/start animations etc.
 		void StopTimer(int x = 0);
-		void StartTimer(int time = 0, int x = 0);
-		void DealerMove();
-		void inciteration();
-		// screen data update
-		void CardUpdate();
-		void BetUpdate();
-		// animation procedures
-		void DealerRollTimer(int t);
-		void TurnTimer();
-		void RiverTimer();
-		void FlopTimer(int t);
-		void ShuffleTimer(int t);
-		void EndturnTimer();
+		void StartTimer(int time = 0, int x = 0);	
+		//trigger next update of all data
 		void Update();
-		int Timer(int t);
-		int Command(int x){return(0);}
-		int Scroll(int k) { return 0; }		
+	
 		~cTableMenu();
 
 	};

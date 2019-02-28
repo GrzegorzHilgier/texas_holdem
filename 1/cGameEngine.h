@@ -4,9 +4,9 @@
 //All in game alghorithms
 //////////////////////////
 
-//Major stage
+//Major game stage
 enum GameStage { GS_DEALER, GS_PREFLOP, GS_HUMAN, GS_FLOP, GS_TURN, GS_RIVER, GS_ENDTURN, GS_ENDGAME };
-//Minor
+//Minor game stade
 enum StageStage { SS_INIT, SS_BIDDING, SS_CLEAR };
 
 // instance of card contain figure and colour
@@ -21,8 +21,9 @@ struct sValue{
 	int lowcard;
 	int kicker;
 };
-//Card deck
-class deck{
+//Card deck class 
+class deck
+{
 	bool d[52];
 	int cleft;
 public:
@@ -30,7 +31,7 @@ public:
 	void Shuffle();
 	card CardDraw();
 };
-//Represents actual blind value
+//Class that represents actual blind value
 class cBlind
 {
 	static int blind[];
@@ -46,7 +47,7 @@ public:
 	}
 };
 
-
+//InitData required for game start
 struct sInitData{
 	int players;
 	int stack;
@@ -54,6 +55,7 @@ struct sInitData{
 	unsigned int starttime;	
 	bool human[10];
 };
+//GameData can be used by UI to display all 
 struct sGameData{
 	GameStage eGS;
 	StageStage eSS;
